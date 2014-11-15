@@ -17,7 +17,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
+        <td><%= user.username.capitalize %></td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>

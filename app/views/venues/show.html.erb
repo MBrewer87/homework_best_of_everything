@@ -6,17 +6,27 @@
   <dt>Name</dt>
   <dd><%= @venue.name %></dd>
 
-  <dt>Neighborhood ID</dt>
-  <dd><%= @venue.neighborhood_id %></dd>
+  <p> </p>
+
+  <dt>Neighborhood Name</dt>
+  <dd><%= @venue_neighborhood %></dd>
+
+  <p> </p>
 
   <dt>Address</dt>
   <dd><%= @venue.address %></dd>
 
+  <p> </p>
+
   <dt>Latitude</dt>
   <dd><%= @latitude %></dd>
 
+  <p> </p>
+
   <dt>Longitude</dt>
   <dd><%= @longitude %></dd>
+
+  <p> </p>
 
   <dt>Map</dt>
   <dd>
@@ -48,6 +58,11 @@
     </script>
     <div id="map-canvas"></div>
   </dd>
-</dl>
 
+  <dt> Dish Favorites </dt>
+  <dd>
+      <% @venue_favdishes.each do |dish|  %>
+        <li> <%= Dish.find_by({:id => dish.dish_id}).name %> (favorited by <%= User.find_by({:id => dish.user_id}).username.capitalize %>) </li>
+      <% end  %>
+  </dd>
 

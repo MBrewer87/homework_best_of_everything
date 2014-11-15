@@ -6,7 +6,18 @@
   <dt>Name</dt>
   <dd><%= @neighborhood.name %></dd>
 
+  <p> </p>
+
   <dt>City</dt>
   <dd><%= @neighborhood.city %></dd>
+
+  <p> </p>
+
+  <dt>Venues</dt>
+  <dd>
+      <% @neighborhood_venues.each do |venue| %>
+        <li> <%= venue.name %> </li>
+      <% end %>
+  </dd>
 
 </dl>

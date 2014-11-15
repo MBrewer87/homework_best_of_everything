@@ -9,7 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Address</th>
-      <th>Neighborhood ID</th>
+      <th>Neighborhood Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,7 +21,7 @@
       <tr>
         <td><%= venue.name %></td>
         <td><%= venue.address %></td>
-        <td><%= venue.neighborhood_id %></td>
+        <td><%= Neighborhood.find_by({:id => venue.neighborhood_id}).name %></td>
         <td>
           <a href="/venues/<%= venue.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>

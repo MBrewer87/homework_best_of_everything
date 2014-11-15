@@ -6,7 +6,17 @@
   <dt>Name</dt>
   <dd><%= @dish.name %></dd>
 
-  <dt>Cuisine ID</dt>
-  <dd><%= @dish.cuisine_id %></dd>
+  <p> </p>
 
-</dl>
+  <dt>Cuisine Name</dt>
+  <dd><%= @dish_cuisine %></dd>
+
+  <p> </p>
+
+  <dt>Favorite Venues</dt>
+  <dd>
+      <% @dish_favvenues.each do |venue|  %>
+        <li> <%= Venue.find_by({:id => venue.venue_id}).name %> (Favorited by <%= User.find_by({:id => venue.user_id}).username.capitalize %>) </li>
+      <% end  %>
+  </dd>
+
