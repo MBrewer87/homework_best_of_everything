@@ -23,6 +23,7 @@ class NeighborhoodsController < ApplicationController
 
   def edit_form
     @neighborhood = Neighborhood.find(params[:id])
+    @neighborhood_venues = Venue.where({:neighborhood_id => @neighborhood.id})
   end
 
   def update_row
@@ -30,6 +31,7 @@ class NeighborhoodsController < ApplicationController
 
     @neighborhood.name = params[:name]
     @neighborhood.city = params[:city]
+    @neighborhood_venues = Venue.where({:neighborhood_id => @neighborhood.id})
 
     @neighborhood.save
 

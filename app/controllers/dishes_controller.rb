@@ -32,6 +32,9 @@ class DishesController < ApplicationController
 
     @dish.name = params[:name]
     @dish.cuisine_id = params[:cuisine_id]
+    @dish_cuisine = Cuisine.find_by({:id => @dish.cuisine_id}).name
+    @dish_favvenues = Favorite.where({:dish_id => @dish.id})
+    @dish_favusers = User.where({:id => @dish_favvenues})
 
     @dish.save
 
